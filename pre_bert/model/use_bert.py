@@ -1,7 +1,7 @@
 import torch
 from transformers import BertTokenizer
-from utils import clean_text
-from model import PersonalityClassifier
+from .utils import clean_text
+from .model import PersonalityClassifier
 
 
 LABEL_ID = {"ISTJ": 0, "ISTP": 1, "ISFJ": 2, "ISFP": 3,

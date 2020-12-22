@@ -1,0 +1,5 @@
+
+            [console_scripts]
+            train_bert=pre_bert.model.main
+            use_bert=pre_bert.model.use_bert
+      

@@ -10,10 +10,10 @@ setup(name='bert_mbti',
       packages=find_packages(),
       install_requires=['torch', 'numpy',"pandas",
                         'matplotlib', 'seaborn', 'transformers==3.0.0',
-                        'scikit-learn'],
+                        'scikit-learn', 'lxml'],
       entry_points='''
             [console_scripts]
-            train_bert=pre_bert.model.main
+            train_bert=pre_bert.model.main:main
             use_bert=pre_bert.model.use_bert
       ''',
 )
