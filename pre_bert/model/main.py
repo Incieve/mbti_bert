@@ -11,10 +11,10 @@ from sklearn.utils.class_weight import compute_class_weight
 import transformers
 from transformers import BertModel, BertTokenizer, AdamW, get_linear_schedule_with_warmup
 
-from utils import clean_text
-from loader import create_data_loader
-from model import PersonalityClassifier
-from train import train_epoch, eval_model
+from .utils import clean_text
+from .loader import create_data_loader
+from .model import PersonalityClassifier
+from .train import train_epoch, eval_model
 
 
 # Random seed - for the same model initialization in each experiment
@@ -96,7 +96,7 @@ scheduler = get_linear_schedule_with_warmup(
 loss_fn = nn.CrossEntropyLoss().to(device)
 
 # Main loop of the script
-if __name__ == "__main__":
+def main():
     history = defaultdict(list)
     best_accuracy = 0
     for epoch in range(EPOCHS):

@@ -1,7 +1,7 @@
 import torch
 from transformers import BertTokenizer
-from utils import clean_text
-from model import PersonalityClassifier
+from .utils import clean_text
+from .model import PersonalityClassifier
 
 
 LABEL_ID = {"ISTJ": 0, "ISTP": 1, "ISFJ": 2, "ISFP": 3,
@@ -40,13 +40,14 @@ def unsqueeze_tensor(tensor):
     tensor = tensor.unsqueeze(0)
     tensor = tensor.repeat(32, 1)
     return tensor
+def predict_type():
+    encoded_input = encode(user_text=user_text)
 
-encoded_input = encode(user_text=user_text)
+    output = model(input_ids=unsqueeze_tensor(encoded_input["input_ids"]),
+                attention_mask=unsqueeze_tensor(encoded_input["attention_mask"]))
 
-output = model(input_ids=unsqueeze_tensor(encoded_input["input_ids"]),
-               attention_mask=unsqueeze_tensor(encoded_input["attention_mask"]))
-
-type_id = int(output.sum(dim=0).argmax())
-type_str = LABELS[type_id]
-print(f"Predicted MBTI type is: {type_str}")
-
+    type_id = int(output.sum(dim=0).argmax())
+    type_str = LABELS[type_id]
+    print(30 * "-")
+    print(f"Predicted MBTI type is: {type_str}")
+    print(30 * "-")

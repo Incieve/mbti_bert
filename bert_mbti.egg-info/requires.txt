@@ -1,0 +1,8 @@
+torch
+numpy
+pandas
+matplotlib
+seaborn
+transformers==3.0.0
+scikit-learn
+lxml
