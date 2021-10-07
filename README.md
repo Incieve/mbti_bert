@@ -7,7 +7,7 @@ Open this folder in terminal and execute following command:
 
 git clone https://github.com/jirijurik-incieve/mbti_bert.git
 
-Go to the **pre_bert** folder in the project and execute: pip install -e .
+Go to the **mbti_bert** folder in the project and execute: pip install -e .
 
 Now the project should be instaled with dependencies (libraries, etc.)
 ´´´
